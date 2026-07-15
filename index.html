@@ -19,12 +19,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#40C4C1',     /* الفيروزي الزاهي (لون القبة) */
-                        secondary: '#A37042',   /* البني العسلي/الخزفي الدافئ */
+                        primary: '#40C4C1',     /* الفيروزي الزاهي */
+                        secondary: '#A37042',   /* البني العسلي */
                         petrol: '#0B607E',      /* الأزرق البترولي الداكن */
-                        taupe: '#9E928A',       /* الرمادي الدافئ/الترابي */
-                        dark: '#052649',        /* الكحلي العميق (لون البلاط الداكن) */
-                        darker: '#031830'       /* الكحلي الحالك للخلفية الأساسية */
+                        taupe: '#9E928A',       /* الرمادي الدافئ */
+                        dark: '#052649',        /* الكحلي العميق */
+                        darker: '#031830'       /* الكحلي الحالك للخلفية */
                     }
                 }
             }
@@ -51,14 +51,15 @@
     </nav>
 
     <header class="relative bg-gradient-to-b from-dark to-darker py-20 px-4 text-center overflow-hidden">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary rounded-full filter blur-[150px] opacity-10"></div>
-        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary rounded-full filter blur-[150px] opacity-10">
+        <!-- قسم الصورة المُضافة حديثاً -->
+        <div class="absolute inset-0 z-0">
+            <img src="image_0.png" alt="واجهة تحداني - تفاعل، تحدى، واكسب"
+                class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-darker/60"></div>
         </div>
 
         <div class="max-w-3xl mx-auto relative z-10">
-            <span
-                class="bg-primary/20 text-primary text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">المنصة
-                الأولى للتحديات التفاعلية للمجموعات</span>
+
             <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-6 leading-tight">
                 أظهر موهبتك، <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">تحدَّ الجميع</span>
