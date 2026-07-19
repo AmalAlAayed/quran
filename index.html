@@ -8,10 +8,81 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
 
         body {
             font-family: 'Cairo', sans-serif;
+        }
+
+        /* تخصيصات إضافية لتكبير الخطوط والأقسام */
+        .question-text-large {
+            font-size: 2rem;
+            /* 32px */
+            line-height: 1.6;
+        }
+
+        .option-text-large {
+            font-size: 1.25rem;
+            /* 20px */
+            line-height: 1.8;
+            padding: 1.25rem 1.5rem;
+            /* زيادة الحشو الداخلي */
+        }
+
+        .section-title-large {
+            font-size: 2.25rem;
+            /* 36px */
+        }
+
+        .score-text-large {
+            font-size: 3.5rem;
+            /* 56px */
+        }
+
+        .btn-large {
+            font-size: 1.25rem;
+            padding: 1rem 2.5rem;
+        }
+
+        .card-padding-large {
+            padding: 2.5rem 3rem;
+        }
+
+        .difficulty-card-large {
+            padding: 1.5rem 1rem;
+        }
+
+        .option-container-large {
+            gap: 1rem;
+            /* زيادة المسافة بين الخيارات */
+        }
+
+        .option-button-large {
+            padding: 1.25rem 1.75rem;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .question-text-large {
+                font-size: 1.5rem;
+            }
+
+            .option-text-large {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+
+            .section-title-large {
+                font-size: 1.75rem;
+            }
+
+            .score-text-large {
+                font-size: 2.5rem;
+            }
+
+            .card-padding-large {
+                padding: 1.5rem 1rem;
+            }
         }
     </style>
     <script>
@@ -19,12 +90,14 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#40C4C1',     /* الفيروزي الزاهي */
-                        secondary: '#A37042',   /* البني العسلي */
-                        petrol: '#0B607E',      /* الأزرق البترولي الداكن */
-                        taupe: '#9E928A',       /* الرمادي الدافئ */
-                        dark: '#052649',        /* الكحلي العميق */
-                        darker: '#031830'       /* الكحلي الحالك للخلفية */
+                        primary: '#0D9488',     /* فيروزي غامق أنيق (Teal 600) */
+                        secondary: '#B45309',   /* برتقالي-بني دافئ (Amber 700) */
+                        lightBg: '#F0F5F9',     /* خلفية رمادية فاتحة جداً */
+                        cardBg: '#FFFFFF',      /* أبيض نقي للبطاقات */
+                        borderLight: '#E2E8F0', /* رمادي فاتح للحدود */
+                        textMain: '#1E293B',    /* رمادي غامق للنصوص الأساسية */
+                        textMuted: '#64748B',   /* رمادي متوسط للنصوص الثانوية */
+                        accentLight: '#F1F5F9'  /* خلفية فاتحة للعناصر التفاعلية */
                     }
                 }
             }
@@ -32,210 +105,226 @@
     </script>
 </head>
 
-<body class="bg-darker text-gray-100 min-h-screen flex flex-col justify-between">
+<body class="bg-lightBg text-textMain min-h-screen flex flex-col justify-between">
 
-    <nav class="bg-dark border-b border-gray-800 sticky top-0 z-50">
+    <nav class="bg-white border-b border-borderLight sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-2">
-                    <div class="bg-primary text-dark p-2 rounded-lg font-extrabold text-xl tracking-wider">
+                    <div class="bg-primary text-white p-3 rounded-lg font-extrabold text-2xl tracking-wider shadow-md">
                         🎯 تَحدَّانِي
                     </div>
                 </div>
                 <div class="flex items-center space-x-8 space-x-reverse">
-                    <a href="#quiz-section" class="text-gray-300 hover:text-primary transition font-semibold">تحدي
+                    <a href="#quiz-section"
+                        class="text-textMuted hover:text-primary transition font-semibold text-lg">تحدي
                         الأسئلة الدينية</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="relative bg-gradient-to-b from-dark to-darker py-20 px-4 text-center overflow-hidden">
+    <header class="relative bg-gradient-to-b from-primary/10 to-lightBg py-24 px-4 text-center overflow-hidden">
         <!-- قسم الصورة المُضافة حديثاً -->
         <div class="absolute inset-0 z-0">
             <img src="image_0.png" alt="واجهة تحداني - تفاعل، تحدى، واكسب"
-                class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-darker/60"></div>
+                class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-lightBg/70"></div>
         </div>
 
-        <div class="max-w-3xl mx-auto relative z-10">
+        <div class="max-w-4xl mx-auto relative z-10">
 
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-6 leading-tight">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-textMain mt-6 leading-tight">
                 أظهر موهبتك، <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">تحدَّ الجميع</span>
                 واكسب الجوائز!
             </h1>
-            <p class="text-taupe mt-6 text-lg">
+            <p class="text-textMuted mt-6 text-xl md:text-2xl">
                 شارك في التحديات اليومية، اختر مستوى الصعوبة، سجل نقاط فريقك وتصدر اللعبة!
             </p>
             <div class="mt-10 flex flex-wrap justify-center gap-4">
                 <a href="#quiz-section"
-                    class="bg-secondary hover:scale-105 transform transition duration-300 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-secondary/20">
+                    class="bg-secondary hover:scale-105 transform transition duration-300 text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-lg shadow-secondary/20">
                     🕌 ابدأ تحدي سورة البقرة للمجموعات
                 </a>
             </div>
         </div>
     </header>
 
-    <section id="quiz-section" class="max-w-4xl mx-auto px-4 py-12 w-full">
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <div
-                class="bg-gradient-to-r from-petrol/40 to-dark/60 border border-primary/30 rounded-2xl p-4 text-center relative">
-                <span class="text-xs font-bold text-primary tracking-wider">🔵 الفريق الأول (أ)</span>
-                <div id="team-a-score" class="text-3xl md:text-4xl font-black text-white mt-1">0</div>
+    <section id="quiz-section" class="max-w-5xl mx-auto px-4 py-16 w-full">
+        <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="bg-white border-2 border-primary/30 rounded-2xl p-6 text-center relative shadow-md">
+                <span class="text-lg font-bold text-primary tracking-wider">🔵 الفريق الأول (أ)</span>
+                <div id="team-a-score" class="score-text-large font-black text-textMain mt-1">0</div>
             </div>
-            <div
-                class="bg-gradient-to-r from-secondary/20 to-dark/60 border border-secondary/30 rounded-2xl p-4 text-center relative">
-                <span class="text-xs font-bold text-secondary tracking-wider">🟤 الفريق الثاني (ب)</span>
-                <div id="team-b-score" class="text-3xl md:text-4xl font-black text-white mt-1">0</div>
+            <div class="bg-white border-2 border-secondary/30 rounded-2xl p-6 text-center relative shadow-md">
+                <span class="text-lg font-bold text-secondary tracking-wider">🟤 الفريق الثاني (ب)</span>
+                <div id="team-b-score" class="score-text-large font-black text-textMain mt-1">0</div>
             </div>
         </div>
 
         <div
-            class="bg-gradient-to-br from-dark to-darker border-2 border-primary/30 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            class="bg-cardBg border-2 border-borderLight rounded-3xl card-padding-large shadow-xl relative overflow-hidden">
             <button onclick="resetScores()"
-                class="absolute top-2 left-2 bg-darker hover:bg-red-950/50 text-taupe hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 z-10">
+                class="absolute top-4 left-4 bg-accentLight hover:bg-red-100 text-textMuted hover:text-red-600 px-4 py-2 rounded-lg text-sm font-bold transition flex items-center gap-1 z-10 border border-borderLight">
                 <i class="fa-solid fa-trash-can"></i> تصفير النقاط
             </button>
 
-            <div class="absolute top-0 right-0 bg-primary/10 text-primary font-bold px-6 py-2 rounded-bl-2xl text-sm">
+            <div class="absolute top-0 right-0 bg-primary/10 text-primary font-bold px-6 py-3 rounded-bl-2xl text-lg">
                 🕌 تحدي المعرفة الإسلامية للمجموعات
             </div>
 
-            <div id="difficulty-container" class="text-center py-6 mt-4">
-                <h3 class="text-2xl font-bold text-white mb-4">اختر مستوى صعوبة التحدي</h3>
-                <p class="text-taupe mb-8 font-semibold text-sm">النقاط التي جمعتموها محفوظة ومستمرة معكم عبر المستويات!
+            <div id="difficulty-container" class="text-center py-8 mt-4">
+                <h3 class="section-title-large font-bold text-textMain mb-4">اختر مستوى صعوبة التحدي</h3>
+                <p class="text-textMuted mb-8 font-semibold text-lg">النقاط التي جمعتموها محفوظة ومستمرة معكم عبر
+                    المستويات!
                 </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
                     <button onclick="startQuiz('easy')"
-                        class="bg-darker hover:border-primary/80 border border-gray-800 p-4 rounded-2xl transition duration-300 text-center group">
-                        <div class="text-2xl mb-2 text-primary group-hover:scale-110 transform transition">🌱</div>
-                        <h4 class="text-sm font-bold text-white">سهل</h4>
-                        <p class="text-taupe text-[10px] mt-1">أسئلة عامة ومباشرة</p>
+                        class="bg-accentLight hover:bg-primary/10 border border-borderLight difficulty-card-large rounded-2xl transition duration-300 text-center group shadow-sm">
+                        <div class="text-3xl mb-3 text-primary group-hover:scale-110 transform transition">🌱</div>
+                        <h4 class="text-xl font-bold text-textMain">سهل</h4>
+                        <p class="text-textMuted text-sm mt-1">أسئلة عامة ومباشرة</p>
                         <span
-                            class="inline-block mt-3 text-[10px] bg-primary/20 text-primary px-2.5 py-1 rounded-full font-bold">50
+                            class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">50
                             نقطة</span>
                     </button>
                     <button onclick="startQuiz('medium')"
-                        class="bg-darker hover:border-primary border border-gray-800 p-4 rounded-2xl transition duration-300 text-center group">
-                        <div class="text-2xl mb-2 text-primary group-hover:scale-110 transform transition">⚡</div>
-                        <h4 class="text-sm font-bold text-white">متوسط</h4>
-                        <p class="text-taupe text-[10px] mt-1">تحتاج لبعض التركيز</p>
+                        class="bg-accentLight hover:bg-primary/10 border border-borderLight difficulty-card-large rounded-2xl transition duration-300 text-center group shadow-sm">
+                        <div class="text-3xl mb-3 text-primary group-hover:scale-110 transform transition">⚡</div>
+                        <h4 class="text-xl font-bold text-textMain">متوسط</h4>
+                        <p class="text-textMuted text-sm mt-1">تحتاج لبعض التركيز</p>
                         <span
-                            class="inline-block mt-3 text-[10px] bg-primary/20 text-primary px-2.5 py-1 rounded-full font-bold">100
+                            class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">100
                             نقطة</span>
                     </button>
                     <button onclick="startQuiz('hard')"
-                        class="bg-darker hover:border-secondary border border-gray-800 p-4 rounded-2xl transition duration-300 text-center group">
-                        <div class="text-2xl mb-2 text-secondary group-hover:scale-110 transform transition">🔥</div>
-                        <h4 class="text-sm font-bold text-white">صعب جداً</h4>
-                        <p class="text-taupe text-[10px] mt-1">لأصحاب المعرفة العميقة</p>
+                        class="bg-accentLight hover:bg-secondary/10 border border-borderLight difficulty-card-large rounded-2xl transition duration-300 text-center group shadow-sm">
+                        <div class="text-3xl mb-3 text-secondary group-hover:scale-110 transform transition">🔥</div>
+                        <h4 class="text-xl font-bold text-textMain">صعب جداً</h4>
+                        <p class="text-textMuted text-sm mt-1">لأصحاب المعرفة العميقة</p>
                         <span
-                            class="inline-block mt-3 text-[10px] bg-secondary/20 text-secondary px-2.5 py-1 rounded-full font-bold">200
+                            class="inline-block mt-3 text-sm bg-secondary/10 text-secondary px-3 py-1.5 rounded-full font-bold border border-secondary/20">200
                             نقطة</span>
                     </button>
                     <!-- القسم الجديد: جزء عم -->
                     <button onclick="startQuiz('juz_amma')"
-                        class="bg-darker hover:border-secondary border-2 border-secondary/40 p-4 rounded-2xl transition duration-300 text-center group relative overflow-hidden">
+                        class="bg-accentLight hover:bg-secondary/10 border-2 border-secondary/30 difficulty-card-large rounded-2xl transition duration-300 text-center group relative overflow-hidden shadow-sm">
                         <div
-                            class="absolute -top-1 -right-1 bg-secondary text-white font-extrabold text-[8px] px-2 py-0.5 rounded-bl-lg">
+                            class="absolute -top-1 -right-1 bg-secondary text-white font-extrabold text-xs px-3 py-1 rounded-bl-lg">
                             مميز 🌟</div>
-                        <div class="text-2xl mb-2 text-secondary group-hover:scale-110 transform transition">🕋</div>
-                        <h4 class="text-sm font-bold text-secondary">جزء عمّ</h4>
-                        <p class="text-gray-300 text-[10px] mt-1 font-semibold">تفسير وفضائل السور</p>
+                        <div class="text-3xl mb-3 text-secondary group-hover:scale-110 transform transition">🕋</div>
+                        <h4 class="text-xl font-bold text-secondary">جزء عمّ</h4>
+                        <p class="text-textMuted text-sm mt-1 font-semibold">تفسير وفضائل السور</p>
                         <span
-                            class="inline-block mt-3 text-[10px] bg-secondary/20 text-secondary px-2.5 py-1 rounded-full font-bold">250
+                            class="inline-block mt-3 text-sm bg-secondary/10 text-secondary px-3 py-1.5 rounded-full font-bold border border-secondary/20">250
                             نقطة</span>
                     </button>
                     <button onclick="startQuiz('albaqarah')"
-                        class="bg-darker hover:border-primary border-2 border-primary/30 p-4 rounded-2xl transition duration-300 text-center group relative overflow-hidden">
+                        class="bg-accentLight hover:bg-primary/10 border-2 border-primary/30 difficulty-card-large rounded-2xl transition duration-300 text-center group relative overflow-hidden shadow-sm">
                         <div
-                            class="absolute -top-1 -right-1 bg-primary text-dark font-extrabold text-[8px] px-2 py-0.5 rounded-bl-lg">
+                            class="absolute -top-1 -right-1 bg-primary text-white font-extrabold text-xs px-3 py-1 rounded-bl-lg">
                             جديد ✨</div>
-                        <div class="text-2xl mb-2 text-primary group-hover:scale-110 transform transition">📖</div>
-                        <h4 class="text-sm font-bold text-primary">سورة البقرة</h4>
-                        <p class="text-gray-300 text-[10px] mt-1 font-semibold">تحديات لطائف البقرة</p>
+                        <div class="text-3xl mb-3 text-primary group-hover:scale-110 transform transition">📖</div>
+                        <h4 class="text-xl font-bold text-primary">سورة البقرة</h4>
+                        <p class="text-textMuted text-sm mt-1 font-semibold">تحديات لطائف البقرة</p>
                         <span
-                            class="inline-block mt-3 text-[10px] bg-primary/20 text-primary px-2.5 py-1 rounded-full font-bold">300
+                            class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">300
+                            نقطة</span>
+                    </button>
+                    <!-- القسم الجديد: أسئلة عن البقرة -->
+                    <button onclick="startQuiz('baqarah_questions')"
+                        class="bg-accentLight hover:bg-primary/10 border-2 border-primary/30 difficulty-card-large rounded-2xl transition duration-300 text-center group relative overflow-hidden shadow-sm">
+                        <div
+                            class="absolute -top-1 -right-1 bg-primary text-white font-extrabold text-xs px-3 py-1 rounded-bl-lg">
+                            جديد ✨</div>
+                        <div class="text-3xl mb-3 text-primary group-hover:scale-110 transform transition">📚</div>
+                        <h4 class="text-xl font-bold text-primary">أسئلة عن البقرة</h4>
+                        <p class="text-textMuted text-sm mt-1 font-semibold">تفسير ولطائف</p>
+                        <span
+                            class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">350
                             نقطة</span>
                     </button>
                 </div>
             </div>
 
             <div id="quiz-container" class="hidden">
-                <div class="flex justify-between items-center mb-6 mt-4">
-                    <span class="text-sm text-gray-400 font-semibold" id="question-number">السؤال 1 من 3</span>
-                    <span class="text-sm bg-secondary/20 text-secondary px-3 py-1 rounded-full font-bold"
+                <div class="flex justify-between items-center mb-8 mt-4">
+                    <span class="text-lg text-textMuted font-bold" id="question-number">السؤال 1 من 3</span>
+                    <span
+                        class="text-lg bg-primary/10 text-primary px-5 py-2 rounded-full font-bold border border-primary/20"
                         id="score-display">النقاط الحالية للسؤال: 0</span>
                 </div>
 
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-8 leading-relaxed" id="question-text">
+                <h3 class="question-text-large font-bold text-textMain mb-10 leading-relaxed" id="question-text">
                     جاري تحميل السؤال...
                 </h3>
 
                 <div id="show-options-wrapper"
-                    class="py-6 text-center border border-dashed border-primary/30 rounded-2xl mb-6 bg-darker/50">
-                    <p class="text-taupe text-sm mb-4">الخيارات مخفية للسماح للفريق بالتفكير أولاً دون مساعدة!</p>
+                    class="py-8 text-center border border-dashed border-primary/30 rounded-2xl mb-8 bg-accentLight">
+                    <p class="text-textMuted text-lg mb-4">الخيارات مخفية للسماح للفريق بالتفكير أولاً دون مساعدة!</p>
                     <button onclick="revealOptions()"
-                        class="bg-primary hover:bg-opacity-90 text-dark font-extrabold px-8 py-3.5 rounded-xl shadow-lg shadow-primary/10 transition-all flex items-center gap-2 mx-auto">
+                        class="bg-primary hover:bg-opacity-90 text-white font-extrabold px-10 py-5 rounded-xl text-xl shadow-lg shadow-primary/20 transition-all flex items-center gap-2 mx-auto">
                         👁️ إظهار خيارات الإجابة
                     </button>
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 hidden" id="options-container">
+                <div class="grid grid-cols-1 gap-5 hidden option-container-large" id="options-container">
                 </div>
 
                 <div id="assign-points-container"
-                    class="hidden mt-8 p-6 bg-darker border border-primary/20 rounded-2xl text-center">
-                    <p class="text-primary font-bold mb-4"><i class="fa-solid fa-award ml-1"></i> إجابة صحيحة! لمن تود
+                    class="hidden mt-10 p-8 bg-accentLight border border-primary/20 rounded-2xl text-center">
+                    <p class="text-primary font-bold text-xl mb-4"><i class="fa-solid fa-award ml-1"></i> إجابة صحيحة!
+                        لمن تود
                         تسجيل نقاط هذا السؤال؟</p>
-                    <div class="flex justify-center gap-4">
+                    <div class="flex justify-center gap-6">
                         <button onclick="awardPoints('A')"
-                            class="bg-petrol hover:bg-opacity-90 text-white font-bold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            class="bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl text-lg transition flex items-center gap-2 shadow-md">
                             🔵 الفريق الأول (أ)
                         </button>
                         <button onclick="awardPoints('B')"
-                            class="bg-secondary hover:bg-opacity-90 text-white font-bold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            class="bg-secondary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl text-lg transition flex items-center gap-2 shadow-md">
                             🟤 الفريق الثاني (ب)
                         </button>
                     </div>
                 </div>
 
-                <div class="mt-8 flex justify-between items-center">
-                    <button onclick="backToDifficulty()" class="text-taupe hover:text-white text-sm transition">
+                <div class="mt-10 flex justify-between items-center">
+                    <button onclick="backToDifficulty()"
+                        class="text-textMuted hover:text-textMain text-lg transition font-bold">
                         <i class="fa-solid fa-arrow-right ml-1"></i> تغيير المستوى
                     </button>
                     <button id="next-btn" onclick="nextQuestion()"
-                        class="hidden bg-primary hover:bg-opacity-95 text-dark px-6 py-3 rounded-xl font-bold transition flex items-center gap-2">
+                        class="hidden bg-primary hover:bg-opacity-95 text-white px-8 py-4 rounded-xl font-bold text-lg transition flex items-center gap-2 shadow-md">
                         السؤال التالي <i class="fa-solid fa-arrow-left"></i>
                     </button>
                 </div>
             </div>
 
-            <div id="result-container" class="hidden text-center py-8">
-                <div class="text-6xl mb-4 text-primary">🏆</div>
-                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">تهانينا! اكتمل التحدي</h3>
-                <h4 id="winner-announcement" class="text-xl font-bold text-primary my-4">الفريق الفائز هو: ...</h4>
+            <div id="result-container" class="hidden text-center py-10">
+                <div class="text-7xl mb-4 text-primary">🏆</div>
+                <h3 class="text-4xl md:text-5xl font-bold text-textMain mb-2">تهانينا! اكتمل التحدي</h3>
+                <h4 id="winner-announcement" class="text-2xl font-bold text-primary my-4">الفريق الفائز هو: ...</h4>
 
-                <div class="bg-darker border border-primary/20 rounded-2xl p-6 max-w-sm mx-auto mb-8">
-                    <div class="flex justify-between border-b border-gray-800 pb-2 mb-2">
+                <div class="bg-accentLight border border-borderLight rounded-2xl p-8 max-w-sm mx-auto mb-8 shadow-sm">
+                    <div class="flex justify-between border-b border-borderLight pb-3 mb-3 text-xl">
                         <span class="text-primary font-bold">الفريق (أ):</span>
-                        <span id="final-team-a" class="font-bold text-white">0</span>
+                        <span id="final-team-a" class="font-bold text-textMain text-2xl">0</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between text-xl">
                         <span class="text-secondary font-bold">الفريق (ب):</span>
-                        <span id="final-team-b" class="font-bold text-white">0</span>
+                        <span id="final-team-b" class="font-bold text-textMain text-2xl">0</span>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-wrap justify-center gap-6">
                     <button onclick="restartQuiz()"
-                        class="bg-secondary hover:scale-105 transform transition duration-300 text-white px-8 py-3 rounded-xl font-bold">
+                        class="bg-secondary hover:scale-105 transform transition duration-300 text-white px-10 py-4 rounded-xl font-bold text-xl shadow-md">
                         إعادة هذا المستوى <i class="fa-solid fa-rotate-right mr-1"></i>
                     </button>
                     <button onclick="backToDifficulty()"
-                        class="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-xl font-bold transition">
+                        class="bg-gray-200 hover:bg-gray-300 text-textMain px-10 py-4 rounded-xl font-bold text-xl transition shadow-sm border border-borderLight">
                         اختيار صعوبة أخرى
                     </button>
                 </div>
@@ -243,13 +332,10 @@
         </div>
     </section>
 
-    <footer class="bg-dark border-t border-gray-800 py-12 px-4 mt-auto">
+    <footer class="bg-white border-t border-borderLight py-16 px-4 mt-auto shadow-inner">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-right">
-                <div class="text-xl font-extrabold text-white">🎯 تَحدَّانِي</div>
-                <p class="text-taupe text-sm mt-2">جميع الحقوق محفوظة &copy; 2026</p>
-                <p class="text-[10px] text-gray-500 mt-1">قسم جزء عم منقول من مسابقة موقع فضاء العقول والمفكرة الدعوية
-                    ١٤٣٩هـ</p>
+
             </div>
         </div>
     </footer>
@@ -414,7 +500,7 @@
                     correct: 1
                 },
                 {
-                    question: "ما الآية الكريمة التي جاءت مفسّرة لقوله تعالى: ﴿يَسُومُونَكُمْ سُوءَ الْعَذابِ﴾ في سورة البقرة？",
+                    question: "ما الآية الكريمة التي جاءت مفسّرة لقوله تعالى: ﴿يَسُومُونَكُمْ سُوءَ الْعَذابِ﴾ في سورة البقرة؟",
                     options: [
                         "قوله تعالى: ﴿وَيَسْتَحْيُونَ نِسَاءَكُمْ﴾",
                         "قوله تعالى: ﴿يُذَبِّحُونَ أَبْناءَكُمْ﴾",
@@ -510,6 +596,179 @@
                     ],
                     correct: 1
                 }
+            ],
+            // القسم الجديد: أسئلة عن البقرة (مع إضافة الأسئلة المطلوبة)
+            baqarah_questions: [
+                {
+                    question: "في الحديث 'من أنظر معسراً أو وضع عنه أظله الله في ظله يوم لا ظل إلا ظله' رواه مسلم . اذكر الآية من سورة البقرة الدالة على هذا المعنى.",
+                    options: [
+                        "﴿وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَى مَيْسَرَةٍ وَأَن تَصَدَّقُواْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ﴾ [البقرة: ٢٨٠]",
+                        "﴿وَإِذَا حَضَرَ الْقِسْمَةَ أُولُو الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينُ فَارْزُقُوهُم مِّنْهُ وَقُولُوا لَهُمْ قَوْلًا مَّعْرُوفًا﴾ [النساء: ٨]",
+                        "﴿إِن تُقْرِضُوا اللَّهَ قَرْضًا حَسَنًا يُضَاعِفْهُ لَكُمْ وَيَغْفِرْ لَكُمْ﴾ [التغابن: ١٧]",
+                        "﴿وَمَا آتَيْتُم مِّن رِّبًا لِّيَرْبُوَ فِي أَمْوَالِ النَّاسِ فَلَا يَرْبُو عِندَ اللَّهِ﴾ [الروم: ٣٩]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "اذكر آية جاء فيها العين بمعنى النهر؟",
+                    options: [
+                        "﴿وَإِذِ اسْتَسْقَىٰ مُوسَىٰ لِقَوْمِهِ فَقُلْنَا اضْرِب بِعَصَاكَ الْحَجَرَ فَانفَجَرَتْ مِنْهُ اثْنَتا عَشَرَةَ عَيْنًا قَدْ عَلِمَ كُلُّ أُنَاسٍ مَشْرَبَهُمْ كُلُوا وَاشْرَبُوا مِن رِّزْقِ اللَّهِ وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ﴾ [البقرة: ٦٠]",
+                        "﴿وَفَجَّرْنَا خِلَالَهُمَا نَهَرًا﴾ [الكهف: ٣٣]",
+                        "﴿وَجَعَلْنَا فِيهَا أَنْهَارًا﴾ [الأنبياء: ٣١]",
+                        "﴿يَا أَيُّهَا النَّاسُ ضُرِبَ مَثَلٌ فَاسْتَمِعُوا لَهُ إِنَّ الَّذِينَ تَدْعُونَ مِن دُونِ اللَّهِ لَن يَخْلُقُوا ذُبَابًا﴾ [الحج: ٧٣]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما القرية التي فى قوله تعالى: (أَوْ كَالَّذِي مَرَّ عَلَى قَرْيَةٍ وَهِيَ خَاوِيَةٌ عَلَى عُرُوشِهَا) [البقرة: ٢٥٩]؟",
+                    options: [
+                        "قرية بيت المقدس",
+                        "قرية مكة المكرمة",
+                        "قرية المدينة المنورة",
+                        "قرية بابل"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (قفينا) فى قوله تعالى: (وَقَفَّيْنَا مِن بَعْدِهِ بِالرُّسُلِ) [البقرة: ٨٧]؟",
+                    options: [
+                        "أتبعنا",
+                        "قطعنا",
+                        "أرسلنا",
+                        "أخَّرنا"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (المقتر) فى قوله تعالى: (وَعَلَى الْمُقْتِرِ قَدَرُهُ) [البقرة: ٢٣٦]؟",
+                    options: [
+                        "الذي قل ما له",
+                        "الغني",
+                        "المتوسط الحال",
+                        "الفقير المدقع"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (فارض) فى قوله تعالى: (لَا فَارِضٌ وَلَا بِكْرٌ) [البقرة: ٦٨]؟",
+                    options: [
+                        "كبيرة",
+                        "صغيرة",
+                        "متوسطة",
+                        "سمينة"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (أعنتكم) في قوله تعالى: (وَلَوْ شَاءَ اللَّهُ لَأَعْنَتَكُمْ) [البقرة: ٢٢٠]؟",
+                    options: [
+                        "شق عليكم",
+                        "أهلككم",
+                        "عذبكم",
+                        "أغناكم"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (طل) فى قوله تعالى: (فَإِن لَّمْ يُصِبْهَا وَابِلٌ فَطَلٌ) [البقرة: ٢٦٥]؟",
+                    options: [
+                        "أخف المطر وأضعفه",
+                        "المطر الغزير",
+                        "الندى",
+                        "الثلج"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (شطر) فى قوله تعالى: (شَطْرَ الْمَسْجِدِ الْحَرَامِ) [البقرة: ١٤٤]؟",
+                    options: [
+                        "نحو",
+                        "بعد",
+                        "جانب",
+                        "جهة"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (سنة) فى قوله تعالى: (لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ) [البقرة: ٢٥٥]؟",
+                    options: [
+                        "نعاس",
+                        "نوم عميق",
+                        "غفوة",
+                        "سهر"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما معنى كلمة (خلة) فى قوله تعالى: (مِّن قَبْلِ أَن يَأْتِيَ يَوْمٌ لَّا بَيْعٌ فِيهِ وَلَا خُلَّةٌ) [البقرة: ٢٥٤]؟",
+                    options: [
+                        "خليل أي صديق",
+                        "محبة",
+                        "مودة",
+                        "قرابة"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "إن الله تعالى رحيم بعباده، فقد أباح لهم أكل ما حرّم عليهم أكله عند الاضطرار، وقد ورد ذلك في آية كريمة، فما هي؟",
+                    options: [
+                        "﴿إِنَّمَا حَرَّمَ عَلَيْكُمُ الْمَيْتَةَ وَالدَّمَ وَلَحْمَ الْخِنزِيرِ وَمَا أُهِلَّ بِهِ لِغَيْرِ اللَّهِ فَمَنِ اضْطُرَّ غَيْرَ بَاغٍ وَلَا عَادٍ فَلَا إِثْمَ عَلَيْهِ إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ﴾ [البقرة: ١٧٣]",
+                        "﴿حُرِّمَتْ عَلَيْكُمُ الْمَيْتَةُ وَالدَّمُ وَلَحْمُ الْخِنزِيرِ وَمَا أُهِلَّ لِغَيْرِ اللَّهِ بِهِ﴾ [المائدة: ٣]",
+                        "﴿قُل لَّا أَجِدُ فِي مَا أُوحِيَ إِلَيَّ مُحَرَّمًا عَلَىٰ طَاعِمٍ يَطْعَمُهُ﴾ [الأنعام: ١٤٥]",
+                        "﴿وَقَدْ فَصَّلَ لَكُم مَّا حَرَّمَ عَلَيْكُمْ إِلَّا مَا اضْطُرِرْتُمْ إِلَيْهِ﴾ [الأنعام: ١١٩]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "أيام التشريق ثلاثة: اليوم الحادي عشر والثاني عشر والثالث عشر من ذي الحجة، وقد رخص الله تعالى للمتعجل بيومين منها، في كتاب الله تعالى آية توضح ذلك، فما هي؟",
+                    options: [
+                        "﴿وَاذْكُرُوا اللَّهَ فِي أَيَّامٍ مَّعْدُودَاتٍ فَمَن تَعَجَّلَ فِي يَوْمَيْنِ فَلَا إِثْمَ عَلَيْهِ وَمَن تَأَخَّرَ فَلَا إِثْمَ عَلَيْهِ لِمَنِ اتَّقَى﴾ [البقرة: ٢٠٣]",
+                        "﴿الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ﴾ [البقرة: ١٩٧]",
+                        "﴿وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ﴾ [البقرة: ١٩٦]",
+                        "﴿فَإِذَا قَضَيْتُمْ مَّنَاسِكَكُمْ فَاذْكُرُوا اللَّهَ﴾ [البقرة: ٢٠٠]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "في آية كريمة من آيات القرآن الكريم نهى الله تعالى عن ثلاثة أمور في الحج، فما هي الآية؟",
+                    options: [
+                        "﴿فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ﴾ [البقرة: ١٩٧]",
+                        "﴿وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ﴾ [البقرة: ١٩٦]",
+                        "﴿الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ﴾ [البقرة: ١٩٧]",
+                        "﴿وَاذْكُرُوا اللَّهَ فِي أَيَّامٍ مَّعْدُودَاتٍ﴾ [البقرة: ٢٠٣]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "جعل الله تعالى جبريل عليه السلام سفيرا بينه وبين رسله وأنبيائه، فكان ينزل عليهم بالوحي، فما الآيات الدالة على ذلك؟",
+                    options: [
+                        "﴿قُلْ مَن كَانَ عَدُوًّا لِّجِبْرِيلَ فَإِنَّهُ نَزَّلَهُ عَلَىٰ قَلْبِكَ بِإِذْنِ اللَّهِ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ وَهُدًى وَبُشْرَىٰ لِلْمُؤْمِنِينَ﴾ [البقرة: ٩٧]",
+                        "﴿نَزَلَ بِهِ الرُّوحُ الْأَمِينُ﴾ [الشعراء: ١٩٣]",
+                        "﴿إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ﴾ [القدر: ١]",
+                        "﴿وَإِنَّهُ لَتَنزِيلُ رَبِّ الْعَالَمِينَ﴾ [الشعراء: ١٩٢]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "جاء رجل إلى النبي ﷺ يسأله: قال: يا رسول الله، أقريب ربنا فنناجيه؟ أم بعيد فنناديه؟ وقبل أن يجيب الرسول ﷺ كان جبريل قد نزل عليه بقول الله تعالى. فما الآية التي أنزلت على نبينا محمد ﷺ؟",
+                    options: [
+                        "﴿وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ﴾ [البقرة: ١٨٦]",
+                        "﴿ادْعُوا رَبَّكُمْ تَضَرُّعًا وَخُفْيَةً﴾ [الأعراف: ٥٥]",
+                        "﴿وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ﴾ [غافر: ٦٠]",
+                        "﴿هُوَ الْحَيُّ لَا إِلَٰهَ إِلَّا هُوَ فَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ﴾ [غافر: ٦٥]"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ليس في كتاب الله تعالى كافان في كلمة واحدة لا حرف بينهما إلا في موضعين، أحدهما قوله تعالى: ﴿مَا سَلَكَكُمْ فِي سَقَرَ﴾ [المدثر: ٤٢] ما هي الأخرى؟",
+                    options: [
+                        "﴿فَإِذَا قَضَيْتُم مَّنَاسِكَكُمْ فَاذْكُرُوا اللَّهَ﴾ [البقرة: ٢٠٠]",
+                        "﴿وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَى مَيْسَرَةٍ﴾ [البقرة: ٢٨٠]",
+                        "﴿لَا تَقْرَبُوا الصَّلَاةَ وَأَنتُمْ سُكَارَىٰ﴾ [النساء: ٤٣]",
+                        "﴿فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ﴾ [الواقعة: ٧٤]"
+                    ],
+                    correct: 0
+                }
             ]
         };
 
@@ -537,6 +796,7 @@
             else if (difficulty === 'hard') pointsPerQuestion = 200;
             else if (difficulty === 'juz_amma') pointsPerQuestion = 250;
             else if (difficulty === 'albaqarah') pointsPerQuestion = 300;
+            else if (difficulty === 'baqarah_questions') pointsPerQuestion = 350;
 
             document.getElementById('score-display').innerText = `النقاط الحالية للسؤال: ${pointsPerQuestion}`;
 
@@ -568,10 +828,11 @@
 
             currentQuiz.options.forEach((option, index) => {
                 const button = document.createElement('button');
-                button.className = "w-full text-right bg-darker border border-gray-800 hover:border-primary/50 p-4 rounded-xl text-base md:text-lg transition duration-200 flex items-center justify-between gap-4";
+                // إضافة كلاس التكبير للخيارات
+                button.className = "w-full text-right bg-accentLight border border-borderLight hover:border-primary/50 p-5 rounded-xl text-lg md:text-xl transition duration-200 flex items-center justify-between gap-4 option-button-large";
                 button.innerHTML = `
                     <span>${option}</span>
-                    <span class="status-icon text-taupe shrink-0"><i class="fa-regular fa-circle"></i></span>
+                    <span class="status-icon text-textMuted shrink-0"><i class="fa-regular fa-circle"></i></span>
                 `;
                 button.onclick = () => selectOption(index, button);
                 optionsContainer.appendChild(button);
@@ -596,19 +857,19 @@
             const isCorrect = (selectedIndex === currentQuiz.correct);
 
             if (isCorrect) {
-                selectedButton.classList.remove('border-gray-800');
-                selectedButton.classList.add('bg-emerald-500/20', 'border-emerald-500', 'text-emerald-400');
-                selectedButton.querySelector('.status-icon').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-500"></i>';
+                selectedButton.classList.remove('border-borderLight');
+                selectedButton.classList.add('bg-emerald-500/20', 'border-emerald-500', 'text-emerald-700');
+                selectedButton.querySelector('.status-icon').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-600"></i>';
 
                 document.getElementById('assign-points-container').classList.remove('hidden');
             } else {
-                selectedButton.classList.remove('border-gray-800');
-                selectedButton.classList.add('bg-red-500/20', 'border-red-500', 'text-red-400');
+                selectedButton.classList.remove('border-borderLight');
+                selectedButton.classList.add('bg-red-500/20', 'border-red-500', 'text-red-700');
                 selectedButton.querySelector('.status-icon').innerHTML = '<i class="fa-solid fa-circle-xmark text-red-500"></i>';
 
                 const correctButton = buttons[currentQuiz.correct];
-                correctButton.classList.add('bg-emerald-500/20', 'border-emerald-500', 'text-emerald-400');
-                correctButton.querySelector('.status-icon').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-500"></i>';
+                correctButton.classList.add('bg-emerald-500/20', 'border-emerald-500', 'text-emerald-700');
+                correctButton.querySelector('.status-icon').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-600"></i>';
 
                 document.getElementById('next-btn').classList.remove('hidden');
             }
@@ -688,6 +949,7 @@
             if (diff === 'medium') return 'المتوسط';
             if (diff === 'hard') return 'الصعب';
             if (diff === 'juz_amma') return 'جزء عم';
+            if (diff === 'baqarah_questions') return 'أسئلة عن البقرة';
             return 'سورة البقرة';
         }
     </script>
