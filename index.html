@@ -26,7 +26,6 @@
             /* 20px */
             line-height: 1.8;
             padding: 1.25rem 1.5rem;
-            /* زيادة الحشو الداخلي */
         }
 
         .section-title-large {
@@ -54,7 +53,6 @@
 
         .option-container-large {
             gap: 1rem;
-            /* زيادة المسافة بين الخيارات */
         }
 
         .option-button-large {
@@ -90,14 +88,14 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0D9488',     /* فيروزي غامق أنيق (Teal 600) */
-                        secondary: '#B45309',   /* برتقالي-بني دافئ (Amber 700) */
-                        lightBg: '#F0F5F9',     /* خلفية رمادية فاتحة جداً */
-                        cardBg: '#FFFFFF',      /* أبيض نقي للبطاقات */
-                        borderLight: '#E2E8F0', /* رمادي فاتح للحدود */
-                        textMain: '#1E293B',    /* رمادي غامق للنصوص الأساسية */
-                        textMuted: '#64748B',   /* رمادي متوسط للنصوص الثانوية */
-                        accentLight: '#F1F5F9'  /* خلفية فاتحة للعناصر التفاعلية */
+                        primary: '#0D9488',
+                        secondary: '#B45309',
+                        lightBg: '#F0F5F9',
+                        cardBg: '#FFFFFF',
+                        borderLight: '#E2E8F0',
+                        textMain: '#1E293B',
+                        textMuted: '#64748B',
+                        accentLight: '#F1F5F9'
                     }
                 }
             }
@@ -112,7 +110,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-2">
                     <div class="bg-primary text-white p-3 rounded-lg font-extrabold text-2xl tracking-wider shadow-md">
-                        🎯 تَحدَّانِي
+                        🎯 حلقة التعاون
                     </div>
                 </div>
                 <div class="flex items-center space-x-8 space-x-reverse">
@@ -125,7 +123,6 @@
     </nav>
 
     <header class="relative bg-gradient-to-b from-primary/10 to-lightBg py-24 px-4 text-center overflow-hidden">
-        <!-- قسم الصورة المُضافة حديثاً -->
         <div class="absolute inset-0 z-0">
             <img src="image_0.png" alt="واجهة تحداني - تفاعل، تحدى، واكسب"
                 class="w-full h-full object-cover opacity-20">
@@ -133,11 +130,10 @@
         </div>
 
         <div class="max-w-4xl mx-auto relative z-10">
-
             <h1 class="text-5xl md:text-7xl font-extrabold text-textMain mt-6 leading-tight">
-                أظهر موهبتك، <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">تحدَّ الجميع</span>
-                واكسب الجوائز!
+                اقرأ وتدبر وتحدَّ.. ففي <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">آيات الله</span>
+                كنوز المعرفة!
             </h1>
             <p class="text-textMuted mt-6 text-xl md:text-2xl">
                 شارك في التحديات اليومية، اختر مستوى الصعوبة، سجل نقاط فريقك وتصدر اللعبة!
@@ -208,7 +204,6 @@
                             class="inline-block mt-3 text-sm bg-secondary/10 text-secondary px-3 py-1.5 rounded-full font-bold border border-secondary/20">200
                             نقطة</span>
                     </button>
-                    <!-- القسم الجديد: جزء عم -->
                     <button onclick="startQuiz('juz_amma')"
                         class="bg-accentLight hover:bg-secondary/10 border-2 border-secondary/30 difficulty-card-large rounded-2xl transition duration-300 text-center group relative overflow-hidden shadow-sm">
                         <div
@@ -233,7 +228,6 @@
                             class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">300
                             نقطة</span>
                     </button>
-                    <!-- القسم الجديد: أسئلة عن البقرة -->
                     <button onclick="startQuiz('baqarah_questions')"
                         class="bg-accentLight hover:bg-primary/10 border-2 border-primary/30 difficulty-card-large rounded-2xl transition duration-300 text-center group relative overflow-hidden shadow-sm">
                         <div
@@ -244,6 +238,19 @@
                         <p class="text-textMuted text-sm mt-1 font-semibold">تفسير ولطائف</p>
                         <span
                             class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">350
+                            نقطة</span>
+                    </button>
+                    <!-- القسم الجديد: أسئلة السور -->
+                    <button onclick="startQuiz('surah_questions')"
+                        class="bg-accentLight hover:bg-primary/10 border-2 border-primary/30 difficulty-card-large rounded-2xl transition duration-300 text-center group relative overflow-hidden shadow-sm">
+                        <div
+                            class="absolute -top-1 -right-1 bg-primary text-white font-extrabold text-xs px-3 py-1 rounded-bl-lg">
+                            جديد ✨</div>
+                        <div class="text-3xl mb-3 text-primary group-hover:scale-110 transform transition">📜</div>
+                        <h4 class="text-xl font-bold text-primary">أسئلة السور</h4>
+                        <p class="text-textMuted text-sm mt-1 font-semibold">معلومات عامة عن السور</p>
+                        <span
+                            class="inline-block mt-3 text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full font-bold border border-primary/20">400
                             نقطة</span>
                     </button>
                 </div>
@@ -394,7 +401,6 @@
                     correct: 2
                 }
             ],
-            // القسم الجديد المطلوب: جزء عم (مستوحى من مستند فضاء العقول والمفكرة الدعوية)
             juz_amma: [
                 {
                     question: "قال تعالى في سورة الفلق: ﴿مِنْ شَرِّ مَا خَلَقَ﴾، ما هو المعنى المراد الصحيح لهذه الآية؟",
@@ -597,7 +603,6 @@
                     correct: 1
                 }
             ],
-            // القسم الجديد: أسئلة عن البقرة (مع إضافة الأسئلة المطلوبة)
             baqarah_questions: [
                 {
                     question: "في الحديث 'من أنظر معسراً أو وضع عنه أظله الله في ظله يوم لا ظل إلا ظله' رواه مسلم . اذكر الآية من سورة البقرة الدالة على هذا المعنى.",
@@ -769,6 +774,92 @@
                     ],
                     correct: 0
                 }
+            ],
+            // القسم الجديد: أسئلة السور
+            surah_questions: [
+                {
+                    question: "ما السور التي سميت بأسماء الأنبياء (6 سور)؟",
+                    options: [
+
+                        "سورة يونس، هود، يوسف، إبراهيم، الأنبياء، نوح",
+                        "سورة يونس، هود، يوسف، إبراهيم، محمد، ص",
+                        "سورة يونس، هود، يوسف، إبراهيم، محمد، نوح",
+                        "سورة يونس، هود، يوسف، إبراهيم، محمد، آل عمران"
+
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "السور التي سميت بأسماء الحيوانات هي 5 سور، ما هي؟",
+                    options: [
+                        "البقرة – النحل – النمل – العنكبوت – الفيل",
+                        "البقرة – النحل – النمل – العنكبوت – القمر",
+                        "البقرة – النحل – النمل – العنكبوت – البقرة",
+                        "البقرة – النحل – النمل – العنكبوت – الشمس"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما اسم السورة التي تخلو من حرف الميم؟",
+                    options: [
+
+                        "سورة الإخلاص",
+                        "سورة الفلق",
+                        "سورة الناس",
+                        "سورة الكوثر"
+                    ],
+                    correct: 3
+                },
+                {
+                    question: "ما السورة التي ذكر في كل آياتها لفظ الجلالة (الله)؟",
+                    options: [
+                        "سورة الإخلاص",
+                        "سورة المجادلة",
+                        "سورة الكوثر",
+                        "سورة الناس"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "ما أول آيات نزلت؟",
+                    options: [
+                        "الآيات الأولى من سورة العلق: {اقرأ باسم ربك الذي خلق * خلق الإنسان من علق * اقرأ وربك الأكرم * الذي علم بالقلم * علم الإنسان مالم يعلم}",
+                        "الآيات الأولى من سورة الفاتحة: {الحمد لله رب العالمين}",
+                        "الآيات الأولى من سورة المزمل: {يا أيها المزمل}",
+                        "الآيات الأولى من سورة المدثر: {يا أيها المدثر}"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما عدد خزنة جهنم المذكورين في القرآن الكريم؟",
+                    options: [
+                        "تسعة عشر ملكاً، لقوله تعالى: {لواحةٌ للبشر * عليها تسعة عشر} (المدثر 29،30)",
+                        "سبعة أملاك",
+                        "أحد عشر ملكاً",
+                        "خمسة عشر ملكاً"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما أضعف بيت ذكر في القرآن الكريم؟",
+                    options: [
+                        "بيت النحل",
+                        "بيت العنكبوت، لقوله تعالى: {وإن أوهن البيوت لبيت العنكبوت} (العنكبوت: 41)",
+                        "بيت النمل",
+                        "بيت الحمام"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "ما الحيوان الذي ذكر في القرآن الكريم هو وأمه؟",
+                    options: [
+                        "العجل والبقرة",
+                        "الناقة وأمها",
+                        "الحمار وأمه",
+                        "الفرس وأمه"
+                    ],
+                    correct: 0
+                }
             ]
         };
 
@@ -797,6 +888,7 @@
             else if (difficulty === 'juz_amma') pointsPerQuestion = 250;
             else if (difficulty === 'albaqarah') pointsPerQuestion = 300;
             else if (difficulty === 'baqarah_questions') pointsPerQuestion = 350;
+            else if (difficulty === 'surah_questions') pointsPerQuestion = 400;
 
             document.getElementById('score-display').innerText = `النقاط الحالية للسؤال: ${pointsPerQuestion}`;
 
@@ -950,6 +1042,7 @@
             if (diff === 'hard') return 'الصعب';
             if (diff === 'juz_amma') return 'جزء عم';
             if (diff === 'baqarah_questions') return 'أسئلة عن البقرة';
+            if (diff === 'surah_questions') return 'أسئلة السور';
             return 'سورة البقرة';
         }
     </script>
